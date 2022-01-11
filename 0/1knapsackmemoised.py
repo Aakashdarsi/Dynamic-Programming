@@ -1,6 +1,6 @@
 def knapsack(wt,profit,w,n):
-    dp_table = [[-1 for i in range(w+1)] for j in range(n+1)]
-    result = 0 
+    dp_table = [[-1 for i in range(w+1)] for j in range(n+1)] #Creating DP table for 0/1 knapsack
+    result = 0 # used for storing the results
     if (w == 0) or (n == 0):
         return 0 
     if dp_table[n][w] != -1:
@@ -11,7 +11,7 @@ def knapsack(wt,profit,w,n):
         
     else:
         result = max(knapsack(wt,profit,w,n-1),profit[n-1]+knapsack(wt,profit,w-wt[n-1],n-1))
-        dp_table[n][w] = result
+        dp_table[n][w] = result # update that result with corresponding weight and number of items in the dp table
     return dp_table[n][w]
 
       
