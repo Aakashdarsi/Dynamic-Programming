@@ -8,7 +8,7 @@ for i in range(n+1): # i indicating the number of items
         if i == 0 or j == 0: # if number of items is zero or bag weight is zero then max profit is zero
             dp_table[i][j] = 0 
         elif (wt[i-1]>j): # if weight of the element is greater than bag weight
-            dp_table[i][j] = dp_table[i-1][j] #moving to previous number of items
+            dp_table[i][j] = dp_table[i-1][j] #moving to previous item 
         else:
             dp_table[i][j] = max(dp_table[i-1][j],profit[i-1]+dp_table[i-1][j-wt[i-1]]) #getting the max profit
 print(dp_table[n][w])
